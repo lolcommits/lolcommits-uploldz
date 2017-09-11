@@ -2,7 +2,7 @@
 
 [![Gem Version](https://img.shields.io/gem/v/lolcommits-uploldz.svg?style=flat)](http://rubygems.org/gems/lolcommits-uploldz)
 [![Travis Build Status](https://travis-ci.org/lolcommits/lolcommits-uploldz.svg?branch=master)](https://travis-ci.org/lolcommits/lolcommits-uploldz)
-[![Coverage Status](https://coveralls.io/repos/github/lolcommits/lolcommits-uploldz/badge.svg?branch=master)](https://coveralls.io/github/lolcommits/lolcommits-uploldz)
+[![Test Coverage](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/badges/coverage.svg)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/coverage)
 [![Code Climate](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/badges/gpa.svg)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz)
 [![Gem Dependency Status](https://gemnasium.com/badges/github.com/lolcommits/lolcommits-uploldz.svg)](https://gemnasium.com/github.com/lolcommits/lolcommits-uploldz)
 
@@ -10,23 +10,17 @@
 every time you git commit code, and archives a lolcat style image with it. Git
 blame has never been so much fun!
 
-This plugin annotates each lolcommit with the commit message and sha text. You
-can style and position these however you like, or add a transparent overlay
-color that covers the entire image.
+This plugin uploads each lolcommit to a remote server after capturing. You
+configure the plugin by setting the remote endpoint that will handle the upload
+request. The following params will be sent with the captured image:
 
-By default your lolcommit will look something like this (maybe without the
-horse):
-
-![horse
-commit](https://github.com/lolcommits/lolcommits-uploldz/raw/master/assets/images/horse.jpg)
-
-You can easily change the plugin options to achieve something like this:
-
-![hipster
-commit](https://github.com/lolcommits/lolcommits-uploldz/raw/master/assets/images/hipster.jpg)
-
-See [below](https://github.com/lolcommits/lolcommits-uploldz#configuration) for
-more information on the options available.
+* `file` - captured lolcommit image file
+* `message` - the commit message
+* `repo` - repository name e.g. mroth/lolcommits
+* `sha` - commit SHA
+* `key` - key (string) from plugin configuration (optional)
+* `author_name` - the commit author name
+* `author_email` - the commit author email address
 
 ## Requirements
 
@@ -37,77 +31,26 @@ more information on the options available.
 
 ## Installation
 
-By default, this plugin is automatically included with the main lolcommits gem.
-If you have uninstalled this gem, install it again with:
+After installing the lolcommits gem, install this plugin with:
 
     $ gem install lolcommits-uploldz
 
-That's it! Every lolcommit will now be stamped with your commit message and sha.
-This plugin is enabled by default (if no configuration for it exists). To
-disable (so no text or overlay is applied) use:
+Then configure to enable it and set the remote endpoint:
+
+    $ lolcommits --config -p uploldz
+    # set enabled to `true`
+    # set the remote endpoint (must begin with http(s)://)
+    # optionally set a key (sent in params) and/or HTTP Basic auth credentials
+
+That's it! Provided the endpoint responds correctly, your next lolcommit will be
+uploaded to the remote endpoint. To disable use:
 
     $ lolcommits --config -p uploldz
     # and set enabled to `false`
 
-### Configuration
-
-Configure this plugin with:
-
-    $ lolcommits --config -p uploldz
-    # set enabled to `true` (then set your own options or choose the defaults)
-
-The following options are available:
-
-* text color
-* text font
-* text position
-* uppercase text?
-* size (point size for the font)
-* stroke color (font outline color, or none)
-* transparent overlay (cover the image with a random background color)
-* transparent overlay % (sets the fill colorize strength)
-
-Please note that:
-
-* The message and sha text can have different text options
-* Any blank options will use the default (indicated when prompted for an option)
-* Always use the full absolute path to font files
-* Valid text positions are NE, NW, SE, SW, S, C (centered)
-* Colors can be hex values (#FC0) or strings (white, red etc.)
-* You can set one or more `overlay_colors` to pick from, separated with commas
-
-With these options it is possible to create your own unique lolcommit format.
-To achieve these '[hipster
-styled](https://twitter.com/matthutchin/status/738411190343368704)' 🕶 commits,
-try the following:
-
-```
-uploldz:
-  enabled: true
-  :message:
-    :color: white
-    :font: "/Users/matt/Library/Fonts/Raleway-Light.ttf"
-    :position: C
-    :size: 30
-    :stroke_color: none
-    :uppercase: true
-  :sha:
-    :color: white
-    :font: "/Users/matt/Library/Fonts/Raleway-Light.ttf"
-    :position: S
-    :size: 20
-    :stroke_color: none
-    :uppercase: false
-  :overlay:
-    :enabled: true
-```
-
-**NOTE**: you can grab the '_Raleway-Light_' font for free from
-[fontsquirrel](https://www.fontsquirrel.com/fonts/Raleway).
-
 ## Development
 
-Check out this repo and run `bin/setup`, to install all dependencies and
+Check out this repo and run `bin/setup`, this will install all dependencies and
 generate docs. Run `bundle exec rake` to run all tests and generate a coverage
 report.
 
@@ -159,8 +102,8 @@ The gem is available as open source under the terms of
 ## Links
 
 * [Travis CI](https://travis-ci.org/lolcommits/lolcommits-uploldz)
-* [Test Coverage](https://coveralls.io/github/lolcommits/lolcommits-uploldz)
 * [Code Climate](https://codeclimate.com/github/lolcommits/lolcommits-uploldz)
+* [Test Coverage](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/coverage)
 * [RDoc](http://rdoc.info/projects/lolcommits/lolcommits-uploldz)
 * [Issues](http://github.com/lolcommits/lolcommits-uploldz/issues)
 * [Report a bug](http://github.com/lolcommits/lolcommits-uploldz/issues/new)

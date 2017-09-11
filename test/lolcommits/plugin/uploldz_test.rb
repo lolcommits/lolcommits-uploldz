@@ -39,7 +39,9 @@ describe Lolcommits::Plugin::Uploldz do
         read_configuration: {
           "uploldz" => {
             "enabled" => true,
-            "endpoint" => "https://uploldz.com/uplol"
+            "endpoint" => "https://uploldz.com/uplol",
+            'optional_http_auth_username' => 'joe',
+            'optional_http_auth_password' => '1234'
           }
         }
       )
@@ -48,7 +50,13 @@ describe Lolcommits::Plugin::Uploldz do
     describe "initalizing" do
       it "assigns runner and all plugin options" do
         plugin.runner.must_equal runner
-        plugin.options.must_equal ["enabled"]
+        plugin.options.must_equal %w(
+          enabled
+          endpoint
+          optional_key
+          optional_http_auth_username
+          optional_http_auth_password
+        )
       end
     end
 
@@ -64,7 +72,7 @@ describe Lolcommits::Plugin::Uploldz do
     end
 
     describe "run_capture_ready" do
-      before { commit_repo_with_message }
+      before { commit_repo_with_message("first commit!") }
       after { teardown_repo }
 
       it "syncs lolcommits" do
@@ -77,9 +85,12 @@ describe Lolcommits::Plugin::Uploldz do
 
           assert_requested :post, "https://uploldz.com/uplol", times: 1,
             headers: {'Content-Type' => /multipart\/form-data/ } do |req|
-            req.body.must_match "sha456"
             req.body.must_match "plugin-test-repo"
-            req.body.must_match "name=\"lol\"; filename="
+            req.body.must_match "sha"
+            req.body.must_match "author_name"
+            req.body.must_match "author_email"
+            req.body.must_match "name=\"file\"; filename="
+            req.body.must_match "first commit!"
           end
         end
       end
@@ -112,7 +123,10 @@ describe Lolcommits::Plugin::Uploldz do
 
         configured_plugin_options.must_equal({
           "enabled" => true,
-          "server" => "https://my-server.com/uplol"
+          "endpoint" => "https://my-server.com/uplol",
+          "optional_key" => "key-123",
+          "optional_http_auth_username" => "joe",
+          "optional_http_auth_password" => "1337pass"
         })
       end
 
