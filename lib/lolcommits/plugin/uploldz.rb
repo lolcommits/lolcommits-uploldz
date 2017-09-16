@@ -69,7 +69,7 @@ module Lolcommits
       # `author_name` - the commit author name
       # `author_email` - the commit author email address
       #
-      # @return [RestClient::Response] response object frm POST request
+      # @return [RestClient::Response] response object from POST request
       # @return [Nil] if any error occurs
       #
       def run_capture_ready
