@@ -85,11 +85,13 @@ describe Lolcommits::Plugin::Uploldz do
 
           assert_requested :post, "https://uploldz.com/uplol", times: 1,
             headers: {'Content-Type' => /multipart\/form-data/ } do |req|
+            req.body.must_match /Content-Disposition: form-data;.+name="file"; filename="main_image.jpg.+"/
+            req.body.must_match 'name="repo"'
+            req.body.must_match 'name="author_name"'
+            req.body.must_match 'name="author_email"'
+            req.body.must_match 'name="sha"'
+            req.body.must_match 'name="key"'
             req.body.must_match "plugin-test-repo"
-            req.body.must_match "sha"
-            req.body.must_match "author_name"
-            req.body.must_match "author_email"
-            req.body.must_match "name=\"file\"; filename="
             req.body.must_match "first commit!"
           end
         end
