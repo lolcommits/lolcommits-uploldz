@@ -17,15 +17,6 @@ module Lolcommits
       end
 
       ##
-      # Returns the name of the plugin to identify the plugin to lolcommits.
-      #
-      # @return [String] the plugin name
-      #
-      def self.name
-        'uploldz'
-      end
-
-      ##
       # Returns position(s) of when this plugin should run during the capture
       # process. Uploading happens when a new capture is ready.
       #
@@ -33,15 +24,6 @@ module Lolcommits
       #
       def self.runner_order
         [:capture_ready]
-      end
-
-      ##
-      # Returns true if the plugin has been configured.
-      #
-      # @return [Boolean] true/false indicating if plugin is configured
-      #
-      def configured?
-        !!(!configuration['enabled'].nil? && configuration['endpoint'])
       end
 
       ##
@@ -53,7 +35,7 @@ module Lolcommits
       # configured
       #
       def valid_configuration?
-        !!(configuration['endpoint'] =~ /^http(s)?:\/\//)
+        !!(configuration[:endpoint] =~ /^http(s)?:\/\//)
       end
 
       ##
@@ -73,9 +55,9 @@ module Lolcommits
       # @return [Nil] if any error occurs
       #
       def run_capture_ready
-        debug "Posting capture to #{configuration['endpoint']}"
+        debug "Posting capture to #{configuration[:endpoint]}"
         RestClient.post(
-          configuration['endpoint'],
+          configuration[:endpoint],
           {
             file: File.new(runner.main_image),
             message: runner.message,
@@ -83,7 +65,7 @@ module Lolcommits
             author_name: runner.vcs_info.author_name,
             author_email: runner.vcs_info.author_email,
             sha: runner.sha,
-            key: configuration['optional_key']
+            key: configuration[:optional_key]
           },
           Authorization: authorization_header
         )
@@ -100,12 +82,12 @@ module Lolcommits
       # @return [Array] the option names
       #
       def plugin_options
-        %w(
-          endpoint
-          optional_key
-          optional_http_auth_username
-          optional_http_auth_password
-        )
+        [
+          :endpoint,
+          :optional_key,
+          :optional_http_auth_username,
+          :optional_http_auth_password
+        ]
       end
 
       ##
@@ -116,8 +98,8 @@ module Lolcommits
       # @return [Nil] if no username or password option set
       #
       def authorization_header
-        user     = configuration['optional_http_auth_username']
-        password = configuration['optional_http_auth_password']
+        user     = configuration[:optional_http_auth_username]
+        password = configuration[:optional_http_auth_password]
         return unless user || password
 
         'Basic ' + Base64.encode64("#{user}:#{password}").chomp
