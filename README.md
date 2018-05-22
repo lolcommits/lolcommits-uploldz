@@ -1,10 +1,10 @@
 # Lolcommits Uploldz
 
-[![Gem Version](https://img.shields.io/gem/v/lolcommits-uploldz.svg?style=flat)](http://rubygems.org/gems/lolcommits-uploldz)
-[![Travis Build Status](https://travis-ci.org/lolcommits/lolcommits-uploldz.svg?branch=master)](https://travis-ci.org/lolcommits/lolcommits-uploldz)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/lolcommits/lolcommits-uploldz.svg)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/maintainability)
-[![Test Coverage](https://img.shields.io/codeclimate/c/lolcommits/lolcommits-uploldz.svg)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/test_coverage)
-[![Gem Dependency Status](https://gemnasium.com/badges/github.com/lolcommits/lolcommits-uploldz.svg)](https://gemnasium.com/github.com/lolcommits/lolcommits-uploldz)
+[![Gem](https://img.shields.io/gem/v/lolcommits-uploldz.svg?style=flat)](http://rubygems.org/gems/lolcommits-uploldz)
+[![Travis](https://travis-ci.org/lolcommits/lolcommits-uploldz.svg?branch=master)](https://travis-ci.org/lolcommits/lolcommits-uploldz)
+[![Depfu](https://img.shields.io/depfu/lolcommits/lolcommits-uploldz.svg?style=flat)](https://depfu.com/github/lolcommits/lolcommits-uploldz)
+[![Maintainability](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/maintainability)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/test_coverage)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/test_coverage)
 
 [lolcommits](https://lolcommits.github.io/) takes a snapshot with your webcam
 every time you git commit code, and archives a lolcat style image with it. Git
