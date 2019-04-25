@@ -1,7 +1,7 @@
 # Lolcommits Uploldz
 
 [![Gem](https://img.shields.io/gem/v/lolcommits-uploldz.svg?style=flat)](http://rubygems.org/gems/lolcommits-uploldz)
-[![Travis](https://travis-ci.org/lolcommits/lolcommits-uploldz.svg?branch=master)](https://travis-ci.org/lolcommits/lolcommits-uploldz)
+[![Travis](https://img.shields.io/travis/com/lolcommits/lolcommits-uploldz/master.svg?style=flat)](https://travis-ci.com/lolcommits/lolcommits-uploldz)
 [![Depfu](https://img.shields.io/depfu/lolcommits/lolcommits-uploldz.svg?style=flat)](https://depfu.com/github/lolcommits/lolcommits-uploldz)
 [![Maintainability](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/maintainability)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/test_coverage)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/test_coverage)
@@ -85,7 +85,7 @@ GitHub.
 
 When submitting pull requests, remember to add tests covering any new behaviour,
 and ensure all tests are passing on [Travis
-CI](https://travis-ci.org/lolcommits/lolcommits-uploldz). Read the
+CI](https://travis-ci.com/lolcommits/lolcommits-uploldz). Read the
 [contributing
 guidelines](https://github.com/lolcommits/lolcommits-uploldz/blob/master/CONTRIBUTING.md)
 for more details.
@@ -103,7 +103,7 @@ The gem is available as open source under the terms of
 
 ## Links
 
-* [Travis CI](https://travis-ci.org/lolcommits/lolcommits-uploldz)
+* [Travis CI](https://travis-ci.com/lolcommits/lolcommits-uploldz)
 * [Code Climate](https://codeclimate.com/github/lolcommits/lolcommits-uploldz)
 * [Test Coverage](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/coverage)
 * [RDoc](http://rdoc.info/projects/lolcommits/lolcommits-uploldz)
