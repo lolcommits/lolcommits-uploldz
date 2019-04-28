@@ -16,7 +16,7 @@ request. The following params will be sent:
 
 * `file` - captured lolcommit image file
 * `message` - the commit message
-* `repo` - repository name e.g. mroth/lolcommits
+* `repo` - repository name e.g. lolcommits/lolcommits
 * `sha` - commit SHA
 * `author_name` - the commit author name
 * `author_email` - the commit author email address

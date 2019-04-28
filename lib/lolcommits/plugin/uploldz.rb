@@ -37,7 +37,7 @@ module Lolcommits
       #
       # `file`    - captured lolcommit image file
       # `message` - the commit message
-      # `repo`    - repository name e.g. mroth/lolcommits
+      # `repo`    - repository name e.g. lolcommits/lolcommits
       # `sha`     - commit SHA
       # `key`     - key (string) from plugin configuration (optional)
       # `author_name` - the commit author name
