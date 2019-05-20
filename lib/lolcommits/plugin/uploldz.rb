@@ -11,7 +11,8 @@ module Lolcommits
       attr_accessor :endpoint
 
       ##
-      # Initialize plugin with runner, config and set all configurable options.
+      # Initialize plugin with runner, config and set all configurable
+      # options.
       #
       def initialize(runner: nil, config: nil, name: nil)
         super
@@ -20,8 +21,8 @@ module Lolcommits
 
       ##
       # Returns true/false indicating if the plugin has been correctly
-      # configured. The `endpoint` option must be set with a URL beginning with
-      # http(s)://
+      # configured. The `endpoint` option must be set with a URL
+      # beginning with http(s)://
       #
       # @return [Boolean] true/false indicating if plugin is correctly
       # configured
@@ -31,11 +32,11 @@ module Lolcommits
       end
 
       ##
-      # Post-capture hook, runs after lolcommits captures a snapshot. Uploads
-      # the lolcommit image to the remote server with an optional Authorization
-      # header and the following request params.
+      # Post-capture hook, runs after lolcommits captures a snapshot.
+      # Uploads # the lolcommit to the remote server with an optional
+      # Authorization header and the following request params.
       #
-      # `file`    - captured lolcommit image file
+      # `file`    - captured lolcommit file
       # `message` - the commit message
       # `repo`    - repository name e.g. lolcommits/lolcommits
       # `sha`     - commit SHA
@@ -51,7 +52,7 @@ module Lolcommits
         RestClient.post(
           configuration[:endpoint],
           {
-            file: File.new(runner.main_image),
+            file: File.new(runner.lolcommit_path),
             message: runner.message,
             repo: runner.vcs_info.repo,
             author_name: runner.vcs_info.author_name,
@@ -83,10 +84,10 @@ module Lolcommits
       end
 
       ##
-      # Builds an HTTP basic auth header from plugin options. If both the
-      # username and password options are empty nil is returned.
+      # Builds an HTTP basic auth header from plugin options. If both
+      # the username and password options are empty nil is returned.
       #
-      # @return [String] the HTTP basic auth header string (Base64 encoded u:p)
+      # @return [String] the HTTP basic auth header string (Base64 encoded)
       # @return [Nil] if no username or password option set
       #
       def authorization_header

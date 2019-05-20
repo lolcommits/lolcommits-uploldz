@@ -12,7 +12,7 @@ describe Lolcommits::Plugin::Uploldz do
     def runner
       # a simple lolcommits runner with an empty configuration Hash
       @runner ||= Lolcommits::Runner.new(
-        main_image: Tempfile.new('main_image.jpg')
+        lolcommit_path: Tempfile.new('lolcommit.jpg').path
       )
     end
 
@@ -67,7 +67,7 @@ describe Lolcommits::Plugin::Uploldz do
 
           assert_requested :post, "https://uploldz.com/uplol", times: 1,
             headers: {'Content-Type' => /multipart\/form-data/ } do |req|
-            req.body.must_match(/Content-Disposition: form-data;.+name="file"; filename="main_image.jpg.+"/)
+            req.body.must_match(/Content-Disposition: form-data;.+name="file"; filename="lolcommit.jpg.+"/)
             req.body.must_match 'name="repo"'
             req.body.must_match 'name="author_name"'
             req.body.must_match 'name="author_email"'
