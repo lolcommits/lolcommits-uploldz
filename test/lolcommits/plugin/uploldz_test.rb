@@ -31,8 +31,8 @@ describe Lolcommits::Plugin::Uploldz do
 
     describe "initalizing" do
       it "assigns runner and all plugin options" do
-        plugin.runner.must_equal runner
-        plugin.options.must_equal [
+        _(plugin.runner).must_equal runner
+        _(plugin.options).must_equal [
           :enabled,
           :endpoint,
           :optional_key,
@@ -44,12 +44,12 @@ describe Lolcommits::Plugin::Uploldz do
 
     describe "#enabled?" do
       it "is false by default" do
-        plugin.enabled?.must_equal false
+        _(plugin.enabled?).must_equal false
       end
 
       it "is true when configured" do
         plugin.configuration = valid_enabled_config
-        plugin.enabled?.must_equal true
+        _(plugin.enabled?).must_equal true
       end
     end
 
@@ -67,14 +67,14 @@ describe Lolcommits::Plugin::Uploldz do
 
           assert_requested :post, "https://uploldz.com/uplol", times: 1,
             headers: {'Content-Type' => /multipart\/form-data/ } do |req|
-            req.body.must_match(/Content-Disposition: form-data;.+name="file"; filename="lolcommit.jpg.+"/)
-            req.body.must_match 'name="repo"'
-            req.body.must_match 'name="author_name"'
-            req.body.must_match 'name="author_email"'
-            req.body.must_match 'name="sha"'
-            req.body.must_match 'name="key"'
-            req.body.must_match "plugin-test-repo"
-            req.body.must_match "first commit!"
+            _(req.body).must_match(/Content-Disposition: form-data;.+name="file"; filename="lolcommit.jpg.+"/)
+            _(req.body).must_match 'name="repo"'
+            _(req.body).must_match 'name="author_name"'
+            _(req.body).must_match 'name="author_email"'
+            _(req.body).must_match 'name="sha"'
+            _(req.body).must_match 'name="key"'
+            _(req.body).must_match "plugin-test-repo"
+            _(req.body).must_match "first commit!"
           end
         end
       end
@@ -96,7 +96,7 @@ describe Lolcommits::Plugin::Uploldz do
           configured_plugin_options = plugin.configure_options!
         end
 
-        configured_plugin_options.must_equal({
+        _(configured_plugin_options).must_equal({
           enabled: true,
           endpoint: "https://my-server.com/uplol",
           optional_key: "key-123",
@@ -108,12 +108,12 @@ describe Lolcommits::Plugin::Uploldz do
       describe "#valid_configuration?" do
         it "returns false for an invalid configuration" do
           plugin.configuration = { endpoint: "gibberish" }
-          plugin.valid_configuration?.must_equal false
+          _(plugin.valid_configuration?).must_equal false
         end
 
         it "returns true with a valid configuration" do
           plugin.configuration = valid_enabled_config
-          plugin.valid_configuration?.must_equal true
+          _(plugin.valid_configuration?).must_equal true
         end
       end
     end
