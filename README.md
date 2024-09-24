@@ -1,10 +1,8 @@
 # Lolcommits Uploldz
 
+[![Build](https://img.shields.io/github/actions/workflow/status/lolcommits/lolcommits-uploldz/build.yml?branch=main&style=flat)](https://github.com/lolcommits/lolcommits-uploldz/actions/workflows/build.yml)
 [![Gem](https://img.shields.io/gem/v/lolcommits-uploldz.svg?style=flat)](http://rubygems.org/gems/lolcommits-uploldz)
-[![Travis](https://img.shields.io/travis/com/lolcommits/lolcommits-uploldz/master.svg?style=flat)](https://travis-ci.com/lolcommits/lolcommits-uploldz)
 [![Depfu](https://img.shields.io/depfu/lolcommits/lolcommits-uploldz.svg?style=flat)](https://depfu.com/github/lolcommits/lolcommits-uploldz)
-[![Maintainability](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/maintainability)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/adb505198ff0e8e8e170/test_coverage)](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/test_coverage)
 
 [lolcommits](https://lolcommits.github.io/) takes a snapshot with your
 webcam every time you git commit code, and archives a lolcat style image
@@ -27,7 +25,7 @@ password).
 
 ## Requirements
 
-* Ruby >= 2.4
+* Ruby >= 3.1
 * A webcam
 * [ImageMagick](http://www.imagemagick.org)
 * [ffmpeg](https://www.ffmpeg.org) (optional) for animated gif capturing
@@ -54,8 +52,7 @@ will be uploaded to it. To disable use:
 ## Development
 
 Check out this repo and run `bin/setup`, this will install all
-dependencies and generate docs. Use `bundle exec rake` to run all tests
-and generate a coverage report.
+dependencies and generate docs. Use `bundle exec rake` to run all tests.
 
 You can also run `bin/console` for an interactive prompt that will allow
 you to experiment with the gem code.
@@ -106,9 +103,7 @@ The gem is available as open source under the terms of
 
 ## Links
 
-* [Travis CI](https://travis-ci.com/lolcommits/lolcommits-uploldz)
-* [Code Climate](https://codeclimate.com/github/lolcommits/lolcommits-uploldz)
-* [Test Coverage](https://codeclimate.com/github/lolcommits/lolcommits-uploldz/coverage)
+* [CI](https://github.com/lolcommits/lolcommits-uploldz/actions/workflows/build.yml)
 * [RDoc](http://rdoc.info/projects/lolcommits/lolcommits-uploldz)
 * [Issues](http://github.com/lolcommits/lolcommits-uploldz/issues)
 * [Report a bug](http://github.com/lolcommits/lolcommits-uploldz/issues/new)
