@@ -49,6 +49,7 @@ module Lolcommits
       #
       def run_capture_ready
         debug "Posting capture to #{configuration[:endpoint]}"
+
         RestClient.post(
           configuration[:endpoint],
           {
