@@ -11,6 +11,7 @@ require "lolcommits/test_helpers/fake_io"
 
 # plugin gem test libs
 require "lolcommits/uploldz"
+require "webmock/minitest"
 require "minitest/autorun"
 
 # swallow all debug output during test runs

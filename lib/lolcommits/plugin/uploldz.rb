@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rest_client"
+require "rest-client"
 require "base64"
 require "lolcommits/plugin/base"
 
