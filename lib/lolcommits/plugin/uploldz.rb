@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-require 'rest_client'
-require 'base64'
-require 'lolcommits/plugin/base'
+require "rest_client"
+require "base64"
+require "lolcommits/plugin/base"
 
 module Lolcommits
   module Plugin
     class Uploldz < Base
-
       attr_accessor :endpoint
 
       ##
@@ -96,7 +95,7 @@ module Lolcommits
         password = configuration[:optional_http_auth_password]
         return unless user || password
 
-        'Basic ' + Base64.encode64("#{user}:#{password}").chomp
+        "Basic " + Base64.encode64("#{user}:#{password}").chomp
       end
     end
   end

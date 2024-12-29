@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
-require 'webmock/minitest'
+require "webmock/minitest"
 
 describe Lolcommits::Plugin::Uploldz do
   include Lolcommits::TestHelpers::GitRepo
@@ -11,8 +11,8 @@ describe Lolcommits::Plugin::Uploldz do
     {
       enabled: true,
       endpoint: "https://uploldz.com/uplol",
-      optional_http_auth_username: 'joe',
-      optional_http_auth_password: '1234'
+      optional_http_auth_username: "joe",
+      optional_http_auth_password: "1234"
     }
   end
 
@@ -56,7 +56,7 @@ describe Lolcommits::Plugin::Uploldz do
         plugin.run_capture_ready
 
         assert_requested :post, "https://uploldz.com/uplol", times: 1,
-          headers: {'Content-Type' => /multipart\/form-data/ } do |req|
+          headers: { "Content-Type" => /multipart\/form-data/ } do |req|
           _(req.body).must_match(/Content-Disposition: form-data;.+name="file"; filename="lolcommit.jpg"/)
           _(req.body).must_match 'name="repo"'
           _(req.body).must_match 'name="author_name"'
@@ -73,13 +73,13 @@ describe Lolcommits::Plugin::Uploldz do
   describe "configuration" do
     it "allows plugin options to be configured" do
       # enabled, endpoint, key, user, password
-      inputs = %w(
+      inputs = %w[
         true
         https://my-server.com/uplol
         key-123
         joe
         1337pass
-      )
+      ]
       configured_plugin_options = {}
 
       fake_io_capture(inputs: inputs) do

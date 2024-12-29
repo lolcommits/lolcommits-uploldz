@@ -5,9 +5,9 @@ require 'lolcommits/uploldz/version'
 Gem::Specification.new do |spec|
   spec.name     = "lolcommits-uploldz"
   spec.version  = Lolcommits::Uploldz::VERSION
-  spec.authors  = ["Matthew Hutchinson"]
-  spec.email    = ["matt@hiddenloop.com"]
-  spec.summary  = %q{Uploads lolcommits to a remote server}
+  spec.authors  = [ "Matthew Hutchinson" ]
+  spec.email    = [ "matt@hiddenloop.com" ]
+  spec.summary  = %q(Uploads lolcommits to a remote server)
   spec.homepage = "https://github.com/lolcommits/lolcommits-uploldz"
   spec.license  = "LGPL-3.0"
 
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = `git ls-files -- {test,features}/*`.split("\n")
   spec.bindir        = "bin"
   spec.executables   = []
-  spec.require_paths = ["lib"]
+  spec.require_paths = [ "lib" ]
 
   spec.required_ruby_version = ">= 3.1"
 
