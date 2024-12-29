@@ -99,7 +99,7 @@ The gem is available as open source under the terms of
 ## Links
 
 * [CI](https://github.com/lolcommits/lolcommits-uploldz/actions/workflows/ci.yml)
-* [RDoc](http://rdoc.info/projects/lolcommits/lolcommits-uploldz)
+* [RDoc](https://rubydoc.info/gems/lolcommits-uploldz)
 * [Issues](http://github.com/lolcommits/lolcommits-uploldz/issues)
 * [Report a bug](http://github.com/lolcommits/lolcommits-uploldz/issues/new)
 * [Gem](http://rubygems.org/gems/lolcommits-uploldz)
